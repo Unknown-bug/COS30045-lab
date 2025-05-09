@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#f0f0f0"/>
+    
+    <!-- Circle with custom fill and stroke -->
+    <circle cx="100" cy="100" r="50" 
+            fill="cornflowerblue" 
+            stroke="darkblue" 
+            stroke-width="3"/>
+    
+    <!-- Rectangle with transparency -->
+    <rect x="200" y="50" 
+          width="100" height="80" 
+          fill="rgba(255, 99, 71, 0.7)" 
+          stroke="crimson" 
+          stroke-width="2"/>
+    
+    <!-- Ellipse -->
+    <ellipse cx="350" cy="100" 
+             rx="60" ry="40" 
+             fill="mediumseagreen" 
+             stroke="darkgreen" 
+             stroke-width="2"/>
+    
+    <!-- Line with custom stroke -->
+    <line x1="50" y1="200" 
+          x2="450" y2="200" 
+          stroke="purple" 
+          stroke-width="4"/>
+    
+    <!-- Polygon (triangle) -->
+    <polygon points="250,300 200,400 300,400" 
+             fill="gold" 
+             stroke="darkgoldenrod" 
+             stroke-width="2"/>
+    
+    <!-- Rounded rectangle -->
+    <rect x="350" y="300" 
+          width="100" height="80" 
+          rx="20" ry="20" 
+          fill="lightcoral" 
+          stroke="indianred" 
+          stroke-width="2"/>
+</svg>

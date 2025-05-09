@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Pet Ownership During the COVID Pandemic" />
+	<meta name="keywords" content="HTML, CSS, Pets, COVID, Australia" />
+	<meta name="author" content="Your name here" />
+
+	<title>Pet Ownership During the COVID Pandemic</title>
+	<!--Insert description of exercise  -->
+
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: #f7f9fa;
+			color: #222;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 40px auto;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+			padding: 32px 40px 24px 40px;
+		}
+
+		h1 {
+			color: #2a5d84;
+			margin-bottom: 0.2em;
+		}
+
+		h2 {
+			color: #4a7ba7;
+			font-size: 1.2em;
+			margin-top: 0;
+		}
+
+		p,
+		ul {
+			font-size: 1.1em;
+			line-height: 1.6;
+		}
+
+		figure {
+			margin: 32px 0;
+			text-align: center;
+		}
+
+		figcaption {
+			font-size: 0.95em;
+			color: #555;
+			margin-top: 8px;
+		}
+
+		.pet-gallery {
+			display: flex;
+			gap: 24px;
+			justify-content: center;
+			margin: 32px 0 16px 0;
+		}
+
+		.pet-gallery img {
+			width: 120px;
+			height: 120px;
+			object-fit: cover;
+			border-radius: 50%;
+			border: 3px solid #e0e7ef;
+			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+		}
+
+		footer {
+			text-align: center;
+			color: #888;
+			font-size: 1em;
+			margin-top: 40px;
+			padding: 16px 0 0 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<h1>Pet Ownership During the COVID Pandemic</h1>
+		<h2>Summary of Animal Medicines Australia (AMA) Report</h2>
+		<p>A report from Animal Medicines Australia (AMA) found that many Australians took the opportunity to introduce
+			a pet into their household during the pandemic. Their survey indicated a significant increase in the percent
+			of households taking in a new dog, fish, or bird. Their research also indicated that pets had a number of
+			positive influences on their lives such as:</p>
+		<ul>
+			<li>companionship</li>
+			<li>better mental health</li>
+			<li>joy and happiness</li>
+		</ul>
+		<p>With the increase in pet ownership, the AMA encourages policy makers to consider the needs of companion
+			animals and their owners when considering rental, strata and body corporate regulations, as well as
+			accepting animals in public places and transport.</p>
+		<div class="pet-gallery">
+			<img src="cat.jpg" alt="Cat">
+			<img src="dog.png" alt="Dog">
+			<img src="fish.jpg" alt="Fish">
+		</div>
+		<figure>
+			<a href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2021/08/AMAU005-PATP-Report21_v1.41_WEB.pdf"
+				target="_blank">
+				<img src="pet_ownership_in_australia_table.png" alt="Pet Ownership in Australia Data Table"
+					style="max-width:100%; border-radius:8px; box-shadow:0 1px 8px rgba(0,0,0,0.10);">
+			</a>
+			<figcaption>Fig 1. Pet ownership in Australia, 2019 vs 2021. Data Source: <a
+					href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2021/08/AMAU005-PATP-Report21_v1.41_WEB.pdf"
+					target="_blank">Animal Medicines Australia</a>.</figcaption>
+		</figure>
+	</div>
+	<footer>COS30045 Data Visualisation</footer>
+</body>
+
+</html>

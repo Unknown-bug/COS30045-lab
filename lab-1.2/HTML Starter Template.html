@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Pet Ownership During the COVID Pandemic" />
+	<meta name="keywords" content="HTML, CSS, Pets, COVID, Australia" />
+	<meta name="author" content="Your name here" />
+
+	<title>Pet Ownership During the COVID Pandemic</title>
+
+	<style>
+		/* Base styles */
+		:root {
+			--primary: #3a7ca5;
+			--primary-light: #d9e6f2;
+			--primary-dark: #2c5d7c;
+			--accent: #f39c12;
+			--text: #2d3748;
+			--text-light: #718096;
+			--background: #f8fafc;
+			--card: #ffffff;
+			--border: #e2e8f0;
+			--shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+			--shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+			--transition: all 0.3s ease;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+			background: var(--background);
+			color: var(--text);
+			line-height: 1.6;
+			padding: 0;
+			margin: 0;
+		}
+
+		/* Layout */
+		.container {
+			max-width: 900px;
+			margin: 40px auto;
+			background: var(--card);
+			border-radius: 12px;
+			box-shadow: var(--shadow);
+			padding: 40px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		@media (max-width: 768px) {
+			.container {
+				margin: 20px;
+				padding: 30px;
+			}
+		}
+
+		/* Typography */
+		h1 {
+			color: var(--primary-dark);
+			font-size: 2.2rem;
+			margin-bottom: 0.5rem;
+			font-weight: 800;
+			line-height: 1.2;
+			position: relative;
+		}
+
+		h1::after {
+			content: '';
+			display: block;
+			width: 80px;
+			height: 4px;
+			background: var(--accent);
+			margin-top: 12px;
+			border-radius: 2px;
+		}
+
+		h2 {
+			color: var(--primary);
+			font-size: 1.3rem;
+			margin-top: 0.5rem;
+			margin-bottom: 1.5rem;
+			font-weight: 600;
+		}
+
+		p,
+		ul {
+			font-size: 1.05rem;
+			line-height: 1.7;
+			color: var(--text);
+			margin-bottom: 1.5rem;
+		}
+
+		ul {
+			padding-left: 1.5rem;
+		}
+
+		li {
+			margin-bottom: 0.5rem;
+			position: relative;
+		}
+
+		li::before {
+			content: '•';
+			color: var(--accent);
+			font-weight: bold;
+			display: inline-block;
+			width: 1em;
+			margin-left: -1em;
+		}
+
+		/* Pet Gallery */
+		.pet-gallery {
+			display: flex;
+			gap: 30px;
+			justify-content: center;
+			margin: 40px 0;
+			flex-wrap: wrap;
+		}
+
+		.pet-card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			transition: var(--transition);
+		}
+
+		.pet-card:hover {
+			transform: translateY(-5px);
+		}
+
+		.pet-card img {
+			width: 140px;
+			height: 140px;
+			object-fit: cover;
+			border-radius: 50%;
+			border: 4px solid var(--primary-light);
+			box-shadow: var(--shadow);
+			transition: var(--transition);
+		}
+
+		.pet-card:hover img {
+			border-color: var(--accent);
+			box-shadow: var(--shadow-hover);
+		}
+
+		.pet-card span {
+			margin-top: 12px;
+			font-weight: 600;
+			color: var(--primary);
+		}
+
+		/* Button container styles */
+		.button-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			justify-content: center;
+			margin: 30px 0;
+		}
+
+		/* Button styles */
+		.chart-button {
+			background-color: var(--primary-light);
+			color: var(--primary-dark);
+			border: none;
+			border-radius: 8px;
+			padding: 12px 20px;
+			font-family: inherit;
+			font-size: 0.95rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: var(--transition);
+			outline: none;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Hover effect */
+		.chart-button:hover {
+			background-color: var(--primary);
+			color: white;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+		}
+
+		/* Active button state */
+		.chart-button.active {
+			background-color: var(--primary-dark);
+			color: white;
+			transform: translateY(0);
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Figure styles */
+		figure {
+			margin: 40px 0;
+			text-align: center;
+			background: var(--primary-light);
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+			transition: var(--transition);
+		}
+
+		figure img {
+			max-width: 100%;
+			border-radius: 8px;
+			box-shadow: var(--shadow);
+			transition: var(--transition);
+			border: 1px solid var(--border);
+			background: white;
+		}
+
+		figcaption {
+			font-size: 0.95rem;
+			color: var(--primary-dark);
+			margin-top: 16px;
+			line-height: 1.5;
+		}
+
+		figcaption a {
+			color: var(--primary-dark);
+			font-weight: 600;
+			text-decoration: none;
+			border-bottom: 1px dotted;
+			transition: var(--transition);
+		}
+
+		figcaption a:hover {
+			color: var(--accent);
+		}
+
+		/* Footer */
+		footer {
+			text-align: center;
+			color: var(--text-light);
+			font-size: 0.9rem;
+			margin-top: 40px;
+			padding: 20px 0;
+			border-top: 1px solid var(--border);
+		}
+
+		/* Decorative elements */
+		.bg-pattern {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 200px;
+			height: 200px;
+			background-image: radial-gradient(var(--primary-light) 2px, transparent 2px);
+			background-size: 20px 20px;
+			opacity: 0.3;
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		/* Responsive design */
+		@media (max-width: 600px) {
+			.button-container {
+				flex-direction: column;
+				align-items: stretch;
+			}
+
+			.chart-button {
+				width: 100%;
+				margin-bottom: 8px;
+			}
+
+			h1 {
+				font-size: 1.8rem;
+			}
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			.pet-gallery {
+				gap: 20px;
+			}
+
+			figure {
+				padding: 20px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="bg-pattern"></div>
+		<header>
+			<h1>Pet Ownership During the COVID Pandemic</h1>
+			<h2>Summary of Animal Medicines Australia (AMA) Report</h2>
+		</header>
+
+		<main>
+			<section>
+				<p>A report from Animal Medicines Australia (AMA) found that many Australians took the opportunity to
+					introduce
+					a pet into their household during the pandemic. Their survey indicated a significant increase in the
+					percent
+					of households taking in a new dog, fish, or bird. Their research also indicated that pets had a
+					number of
+					positive influences on their lives such as:</p>
+				<ul>
+					<li>Companionship and reduced feelings of isolation</li>
+					<li>Better mental health and emotional wellbeing</li>
+					<li>Joy, happiness and a sense of purpose</li>
+				</ul>
+				<p>With the increase in pet ownership, the AMA encourages policy makers to consider the needs of
+					companion
+					animals and their owners when considering rental, strata and body corporate regulations, as well as
+					accepting animals in public places and transport.</p>
+			</section>
+
+			<div class="pet-gallery">
+				<div class="pet-card">
+					<img src="cat.jpg" alt="Cat">
+					<span>Cats</span>
+				</div>
+				<div class="pet-card">
+					<img src="dog.png" alt="Dog">
+					<span>Dogs</span>
+				</div>
+				<div class="pet-card">
+					<img src="fish.jpg" alt="Fish">
+					<span>Fish</span>
+				</div>
+			</div>
+
+			<!-- Button container will be inserted here by JavaScript -->
+
+			<figure>
+				<img id="chartImage" src="chart_comparison.png"
+					alt="Bar chart comparing pet ownership percentages between 2019 and 2021 for different animal types">
+				<figcaption id="chartCaption">Fig 1. Pet ownership comparison between 2019 and 2021. This chart shows
+					the
+					percentage of households owning each type of pet in Australia across both years. Data Source: <a
+						href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2021/08/AMAU005-PATP-Report21_v1.41_WEB.pdf"
+						target="_blank">Animal Medicines Australia</a>.</figcaption>
+			</figure>
+		</main>
+
+		<footer>
+			<p>COS30045 Data Visualisation &copy; 2023</p>
+		</footer>
+	</div>
+
+	<!-- JavaScript file -->
+	<script src="script.js"></script>
+</body>
+
+</html>
