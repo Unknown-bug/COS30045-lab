@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="D3 Bar Chart from CSV Data">
+    <meta name="keywords" content="HTML, CSS, D3, Data Import, CSV">
+    <meta name="author" content="Your name here">
+    <title>Task 2.4 D3 Data Import</title>
+    <!-- Link to the D3.js library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Link to our external JavaScript file -->
+    <script src="chart.js"></script>
+    <style>
+        /* Basic styling for presentation */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        #chart {
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+
+        h1,
+        footer {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Chart drawn from CSV file</h1>
+
+    <!-- This div is the target for our D3 chart -->
+    <div id="chart"></div>
+
+    <footer>
+        <p style="color:grey; font-style: italic;">
+            COS30045 Data Visualisation<br>
+            Joe Bloggs
+        </p>
+    </footer>
+
+</body>
+
+</html>

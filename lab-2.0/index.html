@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="D3 Data Binding Exercise">
+    <meta name="keywords" content="HTML, D3, JavaScript, Data Visualization">
+    <meta name="author" content="Joe Bloggs">
+    <title>D3 Data Binding</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>Creating and Formatting Paragraph Elements with D3</h1>
+
+    <script>
+        // Step 3: Define the dataset
+        const dataset = [14, 5, 26, 23, 9];
+
+        // Use D3 to generate and format paragraph elements
+        d3.select("body")
+            .selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("p")
+            .text(function (d) {
+                // Use the data value 'd' to create a sentence
+                return `Joe watched ${d} cat videos today.`;
+            })
+            .style("color", function (d) {
+                // Conditionally set the text color to red if the value is > 10
+                if (d > 10) {
+                    return "red";
+                }
+            })
+            .html(function (d) {
+                // Conditionally add a "Warning:" prefix if the value is > 10
+                if (d > 10) {
+                    return `<strong>Warning:</strong> ${this.innerHTML}`;
+                } else {
+                    return this.innerHTML;
+                }
+            });
+    </script>
+
+    <footer>
+        <p style="color:grey; font-style: italic;">
+            COS30045 Data Visualisation<br>
+            Joe Bloggs
+        </p>
+    </footer>
+
+</body>
+
+</html>

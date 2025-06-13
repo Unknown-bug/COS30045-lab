@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="D3 Bar Chart Exercise">
+    <meta name="keywords" content="HTML, D3, JavaScript, SVG, Bar Chart">
+    <meta name="author" content="Joe Bloggs">
+    <title>Drawing with Data</title>
+    <!-- Step 1: Include the D3.js library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Optional: Add some basic styling for the chart container */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .chart-container {
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            display: inline-block;
+            /* To make the container fit the SVG */
+        }
+
+        h1,
+        footer {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Drawing with Data</h1>
+
+    <div class="chart-container">
+        <!-- The SVG will be created here by D3 -->
+    </div>
+
+    <script>
+        // --- Configuration Variables ---
+
+        // Define the dimensions of the SVG canvas
+        const w = 500;
+        const h = 150;
+        const barPadding = 2; // The space between bars
+        const heightMultiplier = 4; // Multiplier to make bars taller
+
+        // Define the dataset
+        const dataset = [5, 10, 13, 19, 21, 25, 22, 18, 15, 13, 11, 12, 15, 20, 18, 17, 16, 18, 23, 25];
+
+        // --- D3 Code ---
+
+        // Step 2: Create the SVG element
+        // Select the container div and append an SVG element to it
+        const svg = d3.select(".chart-container")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        // Step 3, 4, 5 & 6: Create, position, and style the bars (rectangles)
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                // Step 4: Calculate the x position for each bar.
+                // 'i' is the index of the data point.
+                // We space the bars evenly across the SVG width.
+                return i * (w / dataset.length);
+            })
+            .attr("y", function (d) {
+                // Step 6: Adjust the baseline.
+                // In SVGs, y=0 is the top. To make bars grow from the bottom,
+                // we set the y-coordinate to the total height minus the bar's height.
+                return h - (d * heightMultiplier);
+            })
+            .attr("width", w / dataset.length - barPadding)
+            .attr("height", function (d) {
+                // Step 5: The height of the bar is the data value multiplied by our constant.
+                return d * heightMultiplier;
+            })
+            .attr("fill", "slategrey"); // Add a default color
+
+        // Optional: Add labels on top of the bars
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function (d) {
+                return d;
+            })
+            .attr("x", function (d, i) {
+                // Center the text in the middle of the bar.
+                return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+            })
+            .attr("y", function (d) {
+                // Position the text just above the bar.
+                return h - (d * heightMultiplier) + 14;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("fill", "white")
+            .attr("text-anchor", "middle"); // This ensures the x-coordinate is the center.
+
+    </script>
+
+    <footer>
+        <p style="color:grey; font-style: italic;">
+            COS30045 Data Visualisation<br>
+            Joe Bloggs
+        </p>
+    </footer>
+
+</body>
+
+</html>
