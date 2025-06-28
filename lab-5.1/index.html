@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="D3 Updatable Bar Chart Exercise">
+    <meta name="keywords" content="HTML, D3, JavaScript, SVG, Bar Chart, Updates">
+    <meta name="author" content="Joe Bloggs">
+    <title>Update Data</title>
+    <!-- Step 1: Include the D3.js library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Optional: Add some basic styling for the chart container */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .chart-container {
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            display: inline-block;
+            /* To make the container fit the SVG */
+        }
+
+        h1,
+        footer {
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Update Data</h1>
+
+    <!-- Add update button -->
+    <button id="updateButton">Update</button>
+
+    <div class="chart-container">
+        <!-- The SVG will be created here by D3 -->
+    </div>
+
+    <!-- Include the separate JavaScript file -->
+    <script src="script.js"></script>
+
+    <footer>
+        <p style="color:grey; font-style: italic;">
+            COS30045 Data Visualisation<br>
+            Joe Bloggs
+        </p>
+    </footer>
+
+</body>
+
+</html>

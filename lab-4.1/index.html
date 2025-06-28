@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Road Deaths Database - Data Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Australian Road Deaths Database</h1>
+            <p class="subtitle">Interactive Data Visualization & Analysis (January 2020)</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link active">Overview</a></li>
+                <li><a href="#temporal" class="nav-link">Temporal Trends</a></li>
+                <li><a href="#demographics" class="nav-link">Demographics</a></li>
+                <li><a href="#geographic" class="nav-link">Geographic</a></li>
+                <li><a href="#factors" class="nav-link">Risk Factors</a></li>
+                <li><a href="#insights" class="nav-link">Key Insights</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <h2>Overview & Key Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="total-fatalities">Loading...</h3>
+                    <p>Total Fatalities</p>
+                    <span class="period" id="period-range">Loading...</span>
+                </div>
+                <div class="stat-card">
+                    <h3 id="avg-per-year">Loading...</h3>
+                    <p>Average per Year</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="most-dangerous-state">Loading...</h3>
+                    <p>State with Most Fatalities</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="peak-age-group">Loading...</h3>
+                    <p>Most Affected Age Group</p>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Fatalities by State</h3>
+                    <canvas id="statesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Crash Types Distribution</h3>
+                    <canvas id="crashTypesChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Temporal Trends Section -->
+        <section id="temporal" class="section">
+            <h2>Temporal Analysis</h2>
+            <div class="question-box">
+                <h3>Key Questions:</h3>
+                <ul>
+                    <li>How have road fatalities changed over time?</li>
+                    <li>Are there seasonal patterns in road deaths?</li>
+                    <li>Which times of day are most dangerous?</li>
+                    <li>Do weekends have higher fatality rates?</li>
+                </ul>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container full-width">
+                    <h3>Fatalities Over Time (1989-2020)</h3>
+                    <canvas id="yearlyTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Monthly Distribution</h3>
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Time of Day Analysis</h3>
+                    <canvas id="timeOfDayChart"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Day of Week Patterns</h3>
+                    <canvas id="dayOfWeekChart"></canvas>
+                </div>
+                <div class="insight-box">
+                    <h3>Temporal Insights</h3>
+                    <div id="temporal-insights">
+                        <p>Analysis loading...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demographics Section -->
+        <section id="demographics" class="section">
+            <h2>Demographic Analysis</h2>
+            <div class="question-box">
+                <h3>Key Questions:</h3>
+                <ul>
+                    <li>Which age groups are most at risk?</li>
+                    <li>Are there gender differences in road fatalities?</li>
+                    <li>How do different road user types compare?</li>
+                    <li>What are the demographic trends over time?</li>
+                </ul>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Age Group Distribution</h3>
+                    <canvas id="ageGroupChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Gender Distribution</h3>
+                    <canvas id="genderChart"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container full-width">
+                    <h3>Road User Types</h3>
+                    <canvas id="roadUserChart"></canvas>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>Demographic Insights</h3>
+                <div id="demographic-insights">
+                    <p>Analysis loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geographic Section -->
+        <section id="geographic" class="section">
+            <h2>Geographic Analysis</h2>
+            <div class="question-box">
+                <h3>Key Questions:</h3>
+                <ul>
+                    <li>Which states/territories have the highest fatality rates?</li>
+                    <li>How do urban vs rural areas compare?</li>
+                    <li>What role does remoteness play in road safety?</li>
+                </ul>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Fatalities by State (Per Capita)</h3>
+                    <canvas id="statesPerCapitaChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Remoteness Areas</h3>
+                    <canvas id="remotenessChart"></canvas>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>Geographic Insights</h3>
+                <div id="geographic-insights">
+                    <p>Analysis loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Factors Section -->
+        <section id="factors" class="section">
+            <h2>Risk Factors Analysis</h2>
+            <div class="question-box">
+                <h3>Key Questions:</h3>
+                <ul>
+                    <li>How does speed limit affect fatality rates?</li>
+                    <li>Which road types are most dangerous?</li>
+                    <li>What's the impact of heavy vehicle involvement?</li>
+                    <li>Are there seasonal risk patterns (Christmas/Easter)?</li>
+                </ul>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Speed Limit Analysis</h3>
+                    <canvas id="speedLimitChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Road Type Analysis</h3>
+                    <canvas id="roadTypeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Heavy Vehicle Involvement</h3>
+                    <canvas id="heavyVehicleChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Holiday Periods Impact</h3>
+                    <canvas id="holidayChart"></canvas>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>Risk Factor Insights</h3>
+                <div id="risk-insights">
+                    <p>Analysis loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Insights Section -->
+        <section id="insights" class="section">
+            <h2>Key Insights & Conclusions</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>Temporal Patterns</h3>
+                    <div id="temporal-conclusions">
+                        <p>Loading analysis...</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <h3>Demographic Trends</h3>
+                    <div id="demographic-conclusions">
+                        <p>Loading analysis...</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <h3>Geographic Factors</h3>
+                    <div id="geographic-conclusions">
+                        <p>Loading analysis...</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <h3>Safety Recommendations</h3>
+                    <div id="safety-recommendations">
+                        <p>Loading recommendations...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology">
+                <h3>Methodology & Data Sources</h3>
+                <p>This analysis is based on the Australian Road Deaths Database (ARDD) maintained by the Bureau of
+                    Infrastructure, Transport and Regional Economics (BITRE). The dataset contains information about
+                    road transport crash fatalities in Australia from 1989 to January 2020, providing comprehensive
+                    demographic and crash details.</p>
+                <p><strong>Data Quality:</strong> Missing or unknown values are represented as -9 in the original
+                    dataset and have been handled appropriately in this analysis.</p>
+                <p><strong>Visualization Tools:</strong> This interactive dashboard uses D3.js and Chart.js for data
+                    visualization, providing dynamic and responsive charts.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 COS30045 Data Visualization Project | Data Source: Australian Road Deaths Database (BITRE)
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

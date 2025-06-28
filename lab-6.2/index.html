@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="D3 Sorting Bar Chart Exercise">
+    <meta name="keywords" content="HTML, D3, JavaScript, SVG, Bar Chart, Mouse Over, Interactivity, Tooltip, Sort">
+    <meta name="author" content="Joe Bloggs">
+    <title>Bar Chart with Mouse Over and Sort</title>
+    <!-- Step 1: Include the D3.js library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Optional: Add some basic styling for the chart container */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .chart-container {
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            display: inline-block;
+            /* To make the container fit the SVG */
+        }
+
+        h1,
+        footer {
+            color: #333;
+        }
+
+        .button-container {
+            margin: 20px 0;
+        }
+
+        button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #addButton {
+            background-color: #4CAF50;
+        }
+
+        #addButton:hover {
+            background-color: #45a049;
+        }
+
+        #removeButton {
+            background-color: #ff9500;
+        }
+
+        #removeButton:hover {
+            background-color: #e6850e;
+        }
+
+        #sortButton {
+            background-color: #28a745;
+        }
+
+        #sortButton:hover {
+            background-color: #218838;
+        }
+
+        .description {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .description h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .description p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Bar Chart with Mouse Over and Sort</h1>
+
+    <div class="description">
+        <h2>D3 Interactive Sorting Chart Demo</h2>
+        <p><strong>Mouse Over Effects:</strong> Hover over any bar to see it highlight in orange and display a custom
+            SVG tooltip showing the exact value.</p>
+        <p><strong>Add/Remove:</strong> Use the buttons to dynamically add or remove bars - all new bars will also have
+            the interactive mouse over effects.</p>
+        <p><strong>Sort:</strong> Click the Sort button to toggle between ascending and descending order. Watch the bars
+            smoothly animate to their new positions!</p>
+        <p>This demonstrates D3's powerful sorting and transition capabilities for creating engaging, interactive data
+            visualizations!</p>
+    </div>
+
+    <!-- Add, Remove, and Sort buttons -->
+    <div class="button-container">
+        <button id="addButton">Add</button>
+        <button id="removeButton">Remove</button>
+        <button id="sortButton">Sort</button>
+    </div>
+
+    <div class="chart-container">
+        <!-- The SVG will be created here by D3 -->
+    </div>
+
+    <!-- Include the separate JavaScript file -->
+    <script src="script.js"></script>
+
+    <footer>
+        <p style="color:grey; font-style: italic;">
+            COS30045 Data Visualisation<br>
+            Joe Bloggs
+        </p>
+    </footer>
+
+</body>
+
+</html>
